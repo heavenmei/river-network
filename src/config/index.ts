@@ -1,7 +1,6 @@
 export enum MAP_STYLE {
   My = 'mapbox://styles/heavenmei117/clurzjfa800ee01pb8qs7a187',
   Street = 'mapbox://styles/mapbox/streets-v12',
-  Standard = 'mapbox://styles/mapbox/standard',
   Light = 'mapbox://styles/mapbox/light-v11',
   StepLine = 'mapbox://styles/mapbox/navigation-day-v1',
   Statellite = 'mapbox://styles/mapbox/satellite-streets-v12',

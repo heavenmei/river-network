@@ -1,20 +1,33 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button, Grid, Radio, Select, Slider } from '@arco-design/web-react';
-import { IconCheckCircle, IconCopy } from '@arco-design/web-react/icon';
+import { MAP_STYLE } from '@/config';
+import { useMapStore } from '@/models/useMapStore';
 
 const RadioGroup = Radio.Group;
-const Row = Grid.Row;
-const Col = Grid.Col;
-const Option = Select.Option;
-
 const SideBar = () => {
-  const [topK, setTopK] = useState<number | number[]>(3);
   const [category, setCategory] = useState<any>({});
   const [selectCat, setSelectCat] = useState<string>();
+  const { mapType, setMapType } = useMapStore();
 
   return (
-    <div className="sidebar-main mx-4">
+    <div className="sideBar mx-4">
       <div className="subtitle flex justify-between">Parameter setting</div>
+      <div>
+        <RadioGroup
+          type="button"
+          size="mini"
+          value={mapType}
+          onChange={(value) => setMapType(value)}
+        >
+          {Object.entries(MAP_STYLE).map((item) => {
+            return (
+              <Radio value={item[1]} key={item[0]}>
+                {item[0]}
+              </Radio>
+            );
+          })}
+        </RadioGroup>
+      </div>
     </div>
   );
 };

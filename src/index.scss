@@ -76,6 +76,18 @@ button {
   backdrop-filter: blur(12px);
 }
 
+.subtitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
 .sideBar {
   color: #fff;
+}
+
+.poi-popup .mapboxgl-popup-content {
+  padding: 10px 10px 10px 10px;
 }
