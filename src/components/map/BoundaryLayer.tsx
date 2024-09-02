@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Layer, LineLayer, Source } from 'react-map-gl';
 import _ from 'lodash';
-
-const DataFile = '../../../public/data/EdgePoints.json';
+import { BoundaryData } from '@/config';
 
 const BoundaryLayer = (props) => {
   const [data, setData] = useState<any>();
@@ -20,7 +19,7 @@ const BoundaryLayer = (props) => {
 
   const getGeoJson = async () => {
     try {
-      const response = await fetch(DataFile);
+      const response = await fetch(BoundaryData);
       const coordinates = await response.json();
 
       const geojson = {

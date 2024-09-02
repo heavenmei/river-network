@@ -14,8 +14,7 @@ import _ from 'lodash';
 import { useMapStore } from '@/models/useMapStore';
 import GateIcon from '@/assets/img/water-gate2.png';
 import mapboxgl from 'mapbox-gl';
-
-const DataFile = '../../../public/data/watergate.json';
+import { WaterGateData } from '@/config';
 
 const MakerLayer = (props) => {
   const [lngLat, setlngLat] = useState();
@@ -44,6 +43,11 @@ const MakerLayer = (props) => {
     },
   };
 
+  const onClick = (e) => {
+    var feature = e.features[0];
+    console.log('🚨 ~ onClick ~ feature:', feature);
+  };
+
   const popup = new mapboxgl.Popup({
     closeButton: false,
     offset: [0, -10],
@@ -60,14 +64,23 @@ const MakerLayer = (props) => {
         .addTo(map);
     });
 
-    map?.on('mouseleave', 'scatter', function () {
+    map?.on('click', 'water-gate', function (e) {
+      onClick(e);
+    });
+
+    map?.on('mouseleave', 'water-gate', function () {
       popup.remove();
     });
+    return () => {
+      map?.off('mousemove', 'water-gate');
+      map?.off('click', 'water-gate');
+      map?.off('mouseleave', 'water-gate');
+    };
   }, [map]);
 
   return (
     <>
-      <Source id="points" type="geojson" data={DataFile}>
+      <Source id="points" type="geojson" data={WaterGateData}>
         <Layer {...symbolLayer} />
         {/* <Layer {...circleLayer} /> */}
       </Source>

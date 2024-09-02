@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Layer, RasterLayer, Source } from 'react-map-gl';
 import { useMapStore } from '@/models/useMapStore';
 import { WindLayer } from '@sakitam-gis/mapbox-wind';
-
-// const DataFile = '../../../public/data/bornData_16_AIEarth.json';
-const DataFile = 'https://blog.sakitam.com/wind-layer/data/wind.json';
+import { WindLayerData } from '@/config';
 
 const WaterLayer = (props) => {
   const [data, setData] = useState<any>();
@@ -12,7 +10,7 @@ const WaterLayer = (props) => {
 
   const init = async () => {
     try {
-      const response = await fetch(DataFile);
+      const response = await fetch(WindLayerData);
       const data = await response.json();
       console.log(data);
 
@@ -52,8 +50,7 @@ const WaterLayer = (props) => {
           wrapX: true,
         },
       });
-      console.log(map, windLayer);
-      // map.addLayer(windLayer);
+      // console.log(map, windLayer);
       windLayer.addTo(map);
 
       // setData(geojson);

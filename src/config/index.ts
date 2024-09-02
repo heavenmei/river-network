@@ -20,3 +20,12 @@ export const mapTiles = {
     'https://api.mapbox.com/styles/v1/billchen2k/clfdky8k2001301pi5r1wiwzu/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYmlsbGNoZW4yayIsImEiOiJja3R2MDBwNWgyNDljMnBvMmdzbnU0dTZ5In0.To49SgD0gHYceQ8Ap2BG3g',
 };
 export const throttleTime = 100;
+
+// export const WindLayerData =
+//   'https://blog.sakitam.com/wind-layer/data/wind.json';
+// const WindLayerData = '/data/bornData_16_AIEarth.json';
+export const WindLayerData = '/data/wind.json';
+
+export const BoundaryData = '/data/EdgePoints.json';
+
+export const WaterGateData = '/data/watergate.json';
