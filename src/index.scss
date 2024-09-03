@@ -84,10 +84,40 @@ button {
   align-items: center;
 }
 
-.sideBar {
-  color: #fff;
-}
-
 .poi-popup .mapboxgl-popup-content {
   padding: 10px 10px 10px 10px;
+}
+
+@mixin panel {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 40px;
+  overflow: auto;
+  color: white;
+  padding: 12px;
+
+  @include panel();
+}
+
+.sideBar {
+  position: absolute;
+  top: 50px;
+  bottom: 20px;
+  left: 20px;
+  gap: 16px;
+  width: 25%;
+  overflow: auto;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  @include panel();
 }

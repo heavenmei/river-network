@@ -25,6 +25,7 @@ export const throttleTime = 100;
 //   'https://blog.sakitam.com/wind-layer/data/wind.json';
 // const WindLayerData = '/data/bornData_16_AIEarth.json';
 export const WindLayerData = '/data/wind.json';
+export const WindLayerData2 = '/data/wind.f008.json';
 
 export const BoundaryData = '/data/EdgePoints.json';
 

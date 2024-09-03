@@ -10,8 +10,8 @@ const SideBar = () => {
   const { mapType, setMapType } = useMapStore();
 
   return (
-    <div className="sideBar mx-4">
-      <div className="subtitle flex justify-between">Parameter setting</div>
+    <>
+      <div className="subtitle flex justify-between">参数设置</div>
       <div>
         <RadioGroup
           type="button"
@@ -28,7 +28,7 @@ const SideBar = () => {
           })}
         </RadioGroup>
       </div>
-    </div>
+    </>
   );
 };
 export default SideBar;

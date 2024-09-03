@@ -12,7 +12,6 @@ import {
 } from 'react-map-gl';
 import _ from 'lodash';
 import { useMapStore } from '@/models/useMapStore';
-import GateIcon from '@/assets/img/water-gate2.png';
 import mapboxgl from 'mapbox-gl';
 import { WaterGateData } from '@/config';
 

@@ -20,7 +20,7 @@ import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import { useMapStore } from '@/models/useMapStore';
 import MarkerLayer from './MarkerLayer';
 
-import GateIcon from '@/assets/img/water-gate2.png';
+import GateIcon from '@/assets/img/water-gate.png';
 import BoundaryLayer from './BoundaryLayer';
 import WaterLayer from './WaterLayer';
 

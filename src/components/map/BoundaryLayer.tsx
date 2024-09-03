@@ -12,7 +12,7 @@ const BoundaryLayer = (props) => {
     source: 'boundary',
     layout: {},
     paint: {
-      'line-color': 'red',
+      'line-color': 'blue',
       'line-width': 4,
     },
   };
