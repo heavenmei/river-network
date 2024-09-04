@@ -20,7 +20,8 @@ import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import { useMapStore } from '@/models/useMapStore';
 import MarkerLayer from './MarkerLayer';
 
-import GateIcon from '@/assets/img/shuiba-modified.png';
+import GateIcon_blue from '@/assets/img/shuiba_blue-modified.png';
+import GateIcon_red from '@/assets/img/shuiba_red-modified.png';
 import BoundaryLayer from './BoundaryLayer';
 import WaterLayer from './WaterLayer';
 
@@ -43,10 +44,16 @@ const CoreMap = (props) => {
     const map = mapRef.current.getMap();
     const layers = map.getStyle().layers;
 
-    map.loadImage(GateIcon, (error, image) => {
+    map.loadImage(GateIcon_blue, (error, image) => {
       if (error) throw error;
-      if (!map.hasImage('custom-marker')) {
-        map.addImage('custom-marker', image);
+      if (!map.hasImage('custom-marker-1')) {
+        map.addImage('custom-marker-1', image);
+      }
+    });
+    map.loadImage(GateIcon_red, (error, image) => {
+      if (error) throw error;
+      if (!map.hasImage('custom-marker-2')) {
+        map.addImage('custom-marker-2', image);
       }
     });
 
