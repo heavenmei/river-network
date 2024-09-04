@@ -25,7 +25,7 @@ const MakerLayer = (props) => {
     source: 'points',
     layout: {
       'icon-image': 'custom-marker', // 使用自定义图标
-      'icon-size': 1,
+      'icon-size': 0.5,
       // 'text-field': '{class}', // 假设 GeoJSON 数据中有一个 "class" 属性
       // 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
       // 'text-offset': [0, 0.6],
@@ -49,7 +49,7 @@ const MakerLayer = (props) => {
 
   const popup = new mapboxgl.Popup({
     closeButton: false,
-    offset: [0, -10],
+    offset: [0, 0],
     className: 'poi-popup',
   });
 
@@ -57,10 +57,13 @@ const MakerLayer = (props) => {
     if (!map) return;
     map?.on('mousemove', 'water-gate', function (e) {
       var feature = e.features[0];
-      popup
-        .setLngLat(e.lngLat)
-        .setHTML(`<strong>${feature.properties.class}</strong>`)
-        .addTo(map);
+      // if (feature.properties.class.includes('blue')) {
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(`<strong>${feature.properties.class} ${feature.geometry.coordinates}</strong>`)
+          .addTo(map);
+      // }
+
     });
 
     map?.on('click', 'water-gate', function (e) {

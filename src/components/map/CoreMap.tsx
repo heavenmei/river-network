@@ -20,7 +20,7 @@ import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import { useMapStore } from '@/models/useMapStore';
 import MarkerLayer from './MarkerLayer';
 
-import GateIcon from '@/assets/img/water-gate.png';
+import GateIcon from '@/assets/img/shuiba-modified.png';
 import BoundaryLayer from './BoundaryLayer';
 import WaterLayer from './WaterLayer';
 
@@ -64,7 +64,7 @@ const CoreMap = (props) => {
       <Map
         {...viewState}
         ref={mapRef}
-        mapboxAccessToken={VITE_MAP_TOKEN}
+        mapboxAccessToken='pk.eyJ1Ijoid2xmZWkiLCJhIjoiY2puMTB6MXZlNHZjcTNwbnl3dnowYjhoaSJ9.s6ZkjRHGIY6xVNBRAf52MQ'
         projection={{
           name: 'equirectangular',
         }}
@@ -87,12 +87,12 @@ const CoreMap = (props) => {
         onClick={onClick}
         // onMouseEnter={onMouseEnter}
         // onMouseLeave={onMouseLeave}
-        onStyleData={() => {}}
+        onStyleData={() => { }}
       >
         {/* <ImgLayer id="heatmap" imgUrl={heatMapImg} /> */}
         <MarkerLayer />
         <BoundaryLayer />
-        <WaterLayer />
+        {/* <WaterLayer /> */}
 
         <NavigationControl showCompass={false} />
       </Map>
