@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Button, Grid, Radio, Select, Slider } from '@arco-design/web-react';
-import { MAP_STYLE } from '@/config';
+import { MAP_STYLE, MapType } from '@/config';
 import { useMapStore } from '@/models/useMapStore';
 
 const RadioGroup = Radio.Group;
@@ -19,7 +19,7 @@ const SideBar = () => {
           value={mapType}
           onChange={(value) => setMapType(value)}
         >
-          {Object.entries(MAP_STYLE).map((item) => {
+          {Object.entries(MapType).map((item) => {
             return (
               <Radio value={item[1]} key={item[0]}>
                 {item[0]}

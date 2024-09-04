@@ -1,10 +1,17 @@
 export enum MAP_STYLE {
-  My = 'mapbox://styles/heavenmei117/clurzjfa800ee01pb8qs7a187',
-  Street = 'mapbox://styles/mapbox/streets-v12',
-  Light = 'mapbox://styles/mapbox/light-v11',
-  StepLine = 'mapbox://styles/mapbox/navigation-day-v1',
-  Statellite = 'mapbox://styles/mapbox/satellite-streets-v12',
+  Street = '街区地图',
+  Light = '亮色',
+  StepLine = '日间',
+  Statellite = '卫星地图',
 }
+
+export const MapType = {
+  [MAP_STYLE.Street]: 'mapbox://styles/mapbox/streets-v12',
+  [MAP_STYLE.Light]: 'mapbox://styles/mapbox/light-v11',
+  [MAP_STYLE.StepLine]: 'mapbox://styles/mapbox/navigation-day-v1',
+  [MAP_STYLE.Statellite]: 'mapbox://styles/mapbox/satellite-streets-v12',
+};
+
 // top-left top-right bottom-right bottom-left
 export const imgLatLngBound = [
   [120.8, 31.898],
