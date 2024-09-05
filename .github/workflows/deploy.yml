@@ -31,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Create .env file
-        run: echo "${{ secrets.VITE_MAPBOX_TOKEN }}" > .env
+        run: echo "${{ secrets.ENV_FILE }}" > .env
 
       - name: Set up Node
         uses: actions/setup-node@v4
