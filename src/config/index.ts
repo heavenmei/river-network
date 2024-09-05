@@ -28,12 +28,11 @@ export const mapTiles = {
 };
 export const throttleTime = 100;
 
-// export const WindLayerData =
-//   'https://blog.sakitam.com/wind-layer/data/wind.json';
+const baseUrl = import.meta.env.BASE_URL;
 // const WindLayerData = '/data/bornData_16_AIEarth.json';
-export const WindLayerData = '/data/wind.json';
-export const WindLayerData2 = '/data/wind.f008.json';
+export const WindLayerData = baseUrl + '/data/wind.json';
+export const WindLayerData2 = baseUrl + '/data/wind.f008.json';
 
-export const BoundaryData = '/data/EdgePoints.json';
+export const BoundaryData = baseUrl + '/data/EdgePoints.json';
 
-export const WaterGateData = '/data/watergate.json';
+export const WaterGateData = baseUrl + '/data/watergate.json';
