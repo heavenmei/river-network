@@ -5,8 +5,8 @@ import { WindLayer } from '@sakitam-gis/mapbox-wind';
 import { WindLayerData } from '@/config';
 
 const WaterLayer = (props) => {
-  const [data, setData] = useState<any>();
-  const { map } = useMapStore();
+  const [windLayer, setWindLayer] = useState<any>();
+  const { map, waterFlow } = useMapStore();
 
   const init = async () => {
     try {
@@ -14,7 +14,7 @@ const WaterLayer = (props) => {
       const data = await response.json();
       console.log(data);
 
-      const windLayer = new WindLayer('wind', data, {
+      const _windLayer = new WindLayer('wind', data, {
         windOptions: {
           colorScale: [
             'rgb(36,104, 180)',
@@ -50,18 +50,22 @@ const WaterLayer = (props) => {
           wrapX: true,
         },
       });
-      // console.log(map, windLayer);
-      windLayer.addTo(map);
-
-      // setData(geojson);
+      setWindLayer(_windLayer);
+      map.addLayer(_windLayer);
     } catch (error) {
       console.error('Error fetching JSON data:', error);
     }
   };
 
   useEffect(() => {
-    map && init();
-  }, [map]);
+    if (!map) return;
+    if (waterFlow) {
+      init();
+    } else {
+      map.removeLayer(windLayer.id);
+      windLayer?.remove();
+    }
+  }, [map, waterFlow]);
 
   return (
     <>

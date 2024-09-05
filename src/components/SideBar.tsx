@@ -1,13 +1,18 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Button, Grid, Radio, Select, Slider } from '@arco-design/web-react';
+import {
+  Button,
+  Grid,
+  Radio,
+  Select,
+  Slider,
+  Switch,
+} from '@arco-design/web-react';
 import { MAP_STYLE, MapType } from '@/config';
 import { useMapStore } from '@/models/useMapStore';
 
 const RadioGroup = Radio.Group;
 const SideBar = () => {
-  const [category, setCategory] = useState<any>({});
-  const [selectCat, setSelectCat] = useState<string>();
-  const { mapType, setMapType } = useMapStore();
+  const { mapType, waterFlow, setMapType, setWaterFlow } = useMapStore();
 
   return (
     <>
@@ -27,6 +32,11 @@ const SideBar = () => {
             );
           })}
         </RadioGroup>
+      </div>
+
+      <div className="subtitle flex justify-between">开启水域流线</div>
+      <div>
+        <Switch checked={waterFlow} onChange={(value) => setWaterFlow(value)} />
       </div>
     </>
   );

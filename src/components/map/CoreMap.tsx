@@ -13,7 +13,7 @@ import Map, {
 } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
-import { MAP_STYLE } from '@/config';
+import { MAP_STYLE, MapType } from '@/config';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
@@ -71,7 +71,7 @@ const CoreMap = (props) => {
       <Map
         {...viewState}
         ref={mapRef}
-        mapboxAccessToken='pk.eyJ1Ijoid2xmZWkiLCJhIjoiY2puMTB6MXZlNHZjcTNwbnl3dnowYjhoaSJ9.s6ZkjRHGIY6xVNBRAf52MQ'
+        mapboxAccessToken={VITE_MAP_TOKEN}
         projection={{
           name: 'equirectangular',
         }}
@@ -94,12 +94,12 @@ const CoreMap = (props) => {
         onClick={onClick}
         // onMouseEnter={onMouseEnter}
         // onMouseLeave={onMouseLeave}
-        onStyleData={() => { }}
+        onStyleData={() => {}}
       >
         {/* <ImgLayer id="heatmap" imgUrl={heatMapImg} /> */}
         <MarkerLayer />
         <BoundaryLayer />
-        {/* <WaterLayer /> */}
+        <WaterLayer />
 
         <NavigationControl showCompass={false} />
       </Map>
