@@ -61,9 +61,10 @@ const WaterLayer = (props) => {
     if (!map) return;
     if (waterFlow) {
       init();
-    } else {
+    } else if (windLayer) {
       map.removeLayer(windLayer?.id);
       windLayer?.remove();
+      setWindLayer(null);
     }
   }, [map, waterFlow]);
 
